@@ -11,13 +11,13 @@ export class MailController {
 
   @MessagePattern('sendMailDoctor')
   sendMailDoctor(mailDataDto: MailDataDto) {
-    console.log(mailDataDto);
     this.mailService.sendMail(mailDataDto, Type.Doctor);
+    this.mailService.scheduleSendMail(mailDataDto, Type.Doctor);
   }
 
-  @MessagePattern('sendMailPatient-1')
+  @MessagePattern('sendMailPatient')
   sendMailPatient(mailDataDto: MailDataDto) {
-    console.log(mailDataDto);
     this.mailService.sendMail(mailDataDto, Type.Patient);
+    this.mailService.scheduleSendMail(mailDataDto, Type.Patient);
   }
 }
