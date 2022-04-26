@@ -11,6 +11,7 @@ export class MailController {
 
   @MessagePattern('sendMailDoctor')
   sendMailDoctor(mailDataDto: MailDataDto) {
+    console.log(mailDataDto);
     this.mailService.sendMail(mailDataDto, Type.Doctor);
     this.mailService.scheduleSendMail(mailDataDto, Type.Doctor);
   }
